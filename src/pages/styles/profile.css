@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* ProfilePage Styles
+.profile-container {
+  @apply min-h-screen bg-gray-900 text-white p-6;
+}
+
+.profile-content {
+  @apply max-w-4xl mx-auto;
+}
+
+.profile-title {
+  @apply text-3xl font-bold mb-4 text-center text-red-600;
+}
+
+.profile-info-container {
+  @apply bg-gray-800 p-6 rounded-lg shadow-lg mb-6;
+}
+
+.profile-info-text {
+  @apply text-lg mb-2;
+}
+
+.watchlist-title {
+  @apply text-2xl font-semibold mb-4 text-center text-blue-400;
+}
+
+.watchlist-empty {
+  @apply text-center text-gray-400;
+}
+
+.watchlist-items {
+  @apply space-y-2;
+}
+
+.watchlist-item {
+  @apply bg-gray-800 p-4 rounded-md shadow-md hover:bg-gray-700;
+}
+
+.watchlist-item-title {
+  @apply text-white;
+}
+
+.error-message {
+  @apply text-center text-red-500 mt-4;
+} */
+.profile-page {
+  @apply min-h-screen bg-[#0a1929] text-white;
+}
+
+.profile-container {
+  @apply max-w-[1200px] mx-auto px-4 py-8;
+}
+
+.profile-header {
+  @apply flex items-center mb-8 pb-8 border-b border-[#233044];
+}
+
+.profile-avatar {
+  @apply w-[100px] h-[100px] rounded-full bg-[#e50914] flex items-center justify-center text-4xl font-bold mr-8;
+}
+
+.profile-info h1 {
+  @apply text-3xl font-bold mb-2;
+}
+
+.profile-info p {
+  @apply text-[#8a9bae] my-1;
+}
+
+.profile-content h2 {
+  @apply text-2xl mb-6 pb-2 border-b border-[#233044];
+}
+.watchlist-grid {
+  @apply grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-6;
+}
+
+.watchlist-item {
+  @apply bg-[#192434] rounded-lg overflow-hidden transition-transform hover:-translate-y-1;
+}
+
+.movie-poster {
+  @apply h-[300px] overflow-hidden;
+}
+
+.movie-poster img {
+  @apply w-full h-full object-cover;
+}
+
+.movie-info {
+  @apply p-4;
+}
+
+.movie-info h3 {
+  @apply text-lg font-bold mb-2;
+}
+
+.movie-info p {
+  @apply text-[#8a9bae] mt-0;
+}
+
+.remove-btn {
+  @apply block w-full mt-4 px-4 py-2 bg-transparent border border-[#e50914] text-[#e50914] rounded cursor-pointer hover:bg-[#e50914] hover:text-white;
+}
+.empty-watchlist {
+  @apply text-center p-8 bg-[#192434] rounded-lg;
+}
+
+.empty-watchlist h2 {
+  @apply text-2xl font-bold mt-4;
+}
+
+.empty-watchlist p {
+  @apply text-[#8a9bae] mt-2;
+}
+
+.browse-btn {
+  @apply mt-4 px-6 py-2 bg-[#e50914] text-white rounded cursor-pointer;
+}
+.loading-spinner {
+  @apply text-center p-8;
+}
+
+.loading-spinner div {
+  @apply animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-[#e50914] mx-auto;
+}
+
+.loading-spinner p {
+  @apply mt-4;
+}
+@media (max-width: 768px) {
+  .navbar-inner {
+    @apply flex-col items-stretch;
+  }
+
+  .navbar-brand {
+    @apply mb-4;
+  }
+
+  .search-container {
+    @apply order-3 my-4 max-w-full;
+  }
+
+  .navbar-links {
+    @apply order-2 justify-end;
+  }
+
+  .profile-header {
+    @apply flex-col text-center;
+  }
+
+  .profile-avatar {
+    @apply mr-0 mb-4;
+  }
+
+  .watchlist-grid {
+    @apply grid-cols-[repeat(auto-fill,minmax(160px,1fr))];
+  }
+}

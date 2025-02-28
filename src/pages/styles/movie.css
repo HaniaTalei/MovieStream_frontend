@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Netflix-inspired Movie Detail Page Tailwind Styles */
+
+/* Main container with dark theme background */
+.movie-detail-container {
+    @apply max-w-full bg-gray-900 text-white min-h-screen pb-16;
+  }
+  
+  /* Loading, error and not found states */
+  .loading-container {
+    @apply flex justify-center items-center h-screen text-xl text-gray-300 font-medium bg-gray-900;
+  }
+  
+  .error-container {
+    @apply bg-red-900/50 text-red-200 p-6 my-4 rounded border-l-4 border-red-600 max-w-4xl mx-auto;
+  }
+  
+  .not-found-container {
+    @apply bg-gray-900/50 text-gray-200 p-6 my-4 rounded border-l-4 border-gray-600 max-w-4xl mx-auto;
+  }
+  
+  /* Movie detail hero section with gradient overlay */
+  .movie-detail-content {
+    @apply relative flex flex-col md:flex-row gap-8 p-8 md:p-12;
+    @apply bg-gradient-to-b from-zinc-900/90 bg-gray-900  bg-gray-900;
+  }
+  
+  /* Poster section */
+  .movie-poster {
+    @apply z-10 flex-shrink-0 md:ml-8 mt-16 md:mt-0;
+  }
+  
+  .poster-image {
+    @apply w-64 md:w-80 h-auto rounded-md shadow-xl border-2 border-gray-800;
+    @apply transition-transform duration-300 hover:scale-105 hover:border-gray-700;
+  }
+  
+  /* Movie info section */
+  .movie-info {
+    @apply flex-grow z-10 mt-4 md:mt-8 max-w-3xl;
+  }
+  
+  .movie-title {
+    @apply text-4xl font-bold mb-3 text-white;
+    /* استفاده از کلاس‌های استاندارد به جای text-shadow-lg */
+    @apply drop-shadow-lg;
+  }
+  
+  /* Rating display */
+  .movie-rating {
+    @apply flex items-center mb-6;
+  }
+  
+  .rating-text {
+    @apply text-2xl font-bold text-red-600 mr-2;
+  }
+  
+  .rating-stars {
+    @apply flex;
+  }
+  
+  .star-icon {
+    @apply text-xl mr-0.5 cursor-pointer;
+    @apply text-gray-600; /* Default star color */
+  }
+  
+  .star-icon.active {
+    @apply text-red-600; /* Netflix red for active stars */
+  }
+  
+  .rating-count {
+    @apply text-sm text-gray-400 ml-2;
+  }
+  
+  /* Movie metadata */
+  .movie-meta {
+    @apply bg-gray-900 p-5 rounded mb-8 backdrop-blur-sm;
+  }
+  
+  .meta-label {
+    @apply font-medium text-gray-400;
+  }
+  
+  /* Movie overview */
+  .movie-overview {
+    @apply mb-8;
+  }
+  
+  .overview-title {
+    @apply text-xl font-semibold mb-3 text-gray-200;
+  }
+  
+  /* User rating section */
+  .user-rating-section {
+    @apply bg-zinc-900/70 p-5 rounded-md mb-6 backdrop-blur-sm;
+  }
+  
+  .rating-title {
+    @apply text-xl font-semibold mb-3 text-gray-200;
+  }
+  
+  .rating-controls {
+    @apply flex flex-col sm:flex-row sm:items-center gap-4;
+  }
+  
+  .user-rating-text {
+    @apply text-gray-300 font-medium;
+  }
+  
+  .remove-rating-button {
+    @apply bg-red-600 hover:bg-red-700 text-white py-1.5 px-4 rounded text-sm transition-colors duration-200;
+  }
+  
+  .remove-rating-button:disabled {
+    @apply bg-gray-700 cursor-not-allowed;
+  }
+  
+  /* Comments section */
+  .comments-section {
+    @apply border-t border-gray-800 mt-8 pt-8 max-w-4xl mx-auto px-8;
+  }
+  
+  .comments-title {
+    @apply text-2xl font-bold mb-8 text-white;
+  }
+  
+  /* Comment form */
+  .comment-form {
+    @apply mb-10;
+  }
+  
+  .comment-input {
+    @apply w-full bg-zinc-900 border border-gray-700 rounded p-4 mb-3 text-white;
+    @apply focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent;
+  }
+  
+  .submit-comment-button {
+    @apply bg-red-600 hover:bg-red-700 text-white py-2.5 px-6 rounded transition-colors duration-200;
+    @apply font-medium;
+  }
+  
+  .submit-comment-button:disabled {
+    @apply bg-gray-700 cursor-not-allowed;
+  }
+  
+  /* Comment items */
+  .comment-item {
+    @apply border-b border-gray-800 py-5 last:border-b-0;
+  }
+  
+  .comment-author {
+    @apply font-medium text-red-500 mb-2;
+  }
+  
+  .comment-text {
+    @apply text-gray-300;
+  }
+  
+  /* Background gradient for main content */
+  .netflix-gradient {
+    @apply bg-gradient-to-b from-zinc-900 via-gray-900 to-gray-900;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .rating-controls {
+      @apply flex-col items-start;
+    }
+    
+    .poster-image {
+      @apply mx-auto;
+    }
+    
+    .movie-title {
+      @apply text-3xl;
+    }
+  }
+  
+  /* Netflix red button utility */
+  .netflix-button {
+    @apply bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded;
+    @apply transition-colors duration-200;
+  }
+  
+  /* Add Netflix-style trailer preview section */
+  .trailer-section {
+    @apply mt-8 mb-12 max-w-4xl mx-auto px-8;
+  }
+  
+  .trailer-title {
+    @apply text-2xl font-bold mb-4 text-white;
+  }
+  
+  .trailer-container {
+    @apply bg-zinc-900 rounded-md overflow-hidden shadow-xl border border-gray-800;
+    @apply aspect-video;
+  }
+  
+  /* Add hover card effects */
+  .hover-card {
+    @apply transition-all duration-300 hover:bg-zinc-800 hover:shadow-xl;
+  }

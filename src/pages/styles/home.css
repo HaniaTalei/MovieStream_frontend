@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* HomePage.css */
+
+.homepage-container {
+  @apply min-h-screen bg-gray-900;
+}
+
+.homepage-inner {
+  @apply container mx-auto px-4 py-8;
+}
+
+.homepage-title {
+  @apply text-white text-3xl font-bold mb-8;
+}
+
+.movie-list-container {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6;
+}
+
+.movie-card {
+  @apply bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300;
+}
+
+.movie-card-image {
+  @apply w-full h-64 object-cover;
+}
+
+.movie-card-content {
+  @apply p-4;
+}
+
+.movie-card-title {
+  @apply text-xl font-semibold mb-2 text-white;
+}
+
+.movie-card-description {
+  @apply text-gray-400;
+}

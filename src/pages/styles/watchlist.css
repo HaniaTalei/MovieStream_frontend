@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.watchlist-page {
+  @apply min-h-screen bg-[#0a1929] text-white;
+}
+
+.watchlist-container {
+  @apply max-w-[1200px] mx-auto px-4 py-8;
+}
+
+.watchlist-header {
+  @apply text-center mb-8;
+}
+
+.watchlist-header h1 {
+  @apply text-4xl mb-2;
+}
+
+.watchlist-header p {
+  @apply text-[#8a9bae] text-lg;
+}
+
+/* Watchlist Stats */
+.watchlist-stats {
+  @apply flex justify-between bg-[#192434] p-4 rounded-lg mb-8;
+}
+
+.watchlist-stats p {
+  @apply m-0 text-sm text-[#8a9bae];
+}
+
+.watchlist-stats span {
+  @apply font-bold text-white ml-2;
+}
+
+/* Watchlist Table */
+.watchlist-table-container {
+  @apply overflow-x-auto mb-8;
+}
+
+.watchlist-table {
+  @apply w-full border-collapse bg-[#192434] rounded-lg overflow-hidden;
+}
+
+.watchlist-table th,
+.watchlist-table td {
+  @apply px-4 py-3 text-left;
+}
+
+.watchlist-table th {
+  @apply bg-[#233044] font-medium text-[#8a9bae];
+}
+
+.watchlist-table tr {
+  @apply border-b border-[#233044];
+}
+
+.watchlist-table tr:last-child {
+  @apply border-b-0;
+}
+
+.poster-cell {
+  @apply w-20;
+}
+
+.poster-cell img {
+  @apply w-16 h-24 object-cover rounded;
+}
+
+.rating {
+  @apply flex items-center;
+}
+
+.rating-star {
+  @apply text-yellow-400 mr-1;
+}
+
+.remove-btn,
+.watch-btn {
+  @apply px-3 py-1 rounded font-medium cursor-pointer text-sm transition-colors;
+}
+
+.remove-btn {
+  @apply bg-transparent border border-[#e50914] text-[#e50914] hover:bg-[#e50914] hover:text-white;
+}
+
+.watch-btn {
+  @apply bg-[#e50914] text-white hover:bg-[#f40612];
+}
+
+/* Watchlist Grid */
+.watchlist-grid {
+  @apply grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-6;
+}
+
+.watchlist-card {
+  @apply bg-[#192434] rounded-lg overflow-hidden transition-transform hover:-translate-y-1;
+}
+
+.card-poster {
+  @apply h-[330px] relative overflow-hidden;
+}
+
+.card-poster img {
+  @apply w-full h-full object-cover;
+}
+
+.card-overlay {
+  @apply absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4 transform translate-y-full transition-transform flex justify-between;
+}
+
+.card-poster:hover .card-overlay {
+  @apply translate-y-0;
+}
+
+.card-info {
+  @apply p-4;
+}
+
+.card-info h3 {
+  @apply mt-0 mb-2 text-lg truncate;
+}
+
+.card-details {
+  @apply flex justify-between mb-2;
+}
+
+.card-genre {
+  @apply text-sm text-[#8a9bae] truncate;
+}
+
+.card-added {
+  @apply text-xs text-[#8a9bae] mt-2;
+}
+
+/* Empty Watchlist */
+.empty-watchlist {
+  @apply text-center px-4 py-12 bg-[#192434] rounded-lg max-w-[500px] mx-auto;
+}
+
+.empty-icon {
+  @apply text-5xl mb-4;
+}
+
+.empty-watchlist h2 {
+  @apply mt-0 mb-4;
+}
+
+.empty-watchlist p {
+  @apply text-[#8a9bae] mb-8;
+}
+
+.browse-btn {
+  @apply bg-[#e50914] text-white border-none px-6 py-2 rounded font-medium cursor-pointer hover:bg-[#f40612];
+}
+
+/* Loading Spinner */
+.loading-container {
+  @apply flex flex-col items-center justify-center px-4 py-12;
+}
+
+.loading-spinner {
+  @apply border-4 border-white/10 rounded-full border-t-[#e50914] w-10 h-10 animate-spin mb-4;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .watchlist-table-container {
+    @apply hidden; /* Hide table view on mobile */
+  }
+  
+  .watchlist-grid {
+    @apply grid-cols-[repeat(auto-fill,minmax(160px,1fr))];
+  }
+  
+  .card-poster {
+    @apply h-[240px];
+  }
+}
+
+@media (min-width: 769px) {
+  /* You can uncomment this if you want to hide the grid view on desktop */
+  /* .watchlist-grid {
+    @apply hidden;
+  } */
+}
