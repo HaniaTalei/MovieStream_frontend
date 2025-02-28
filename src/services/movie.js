@@ -1,5 +1,38 @@
 import api from './api';
 
+
+export const getSearchedMovies = async (page = 1, limit = 12, searchParams = {}) => {
+  // ساخت پارامترهای URL براساس معیارهای جستجو و فیلتر
+  let queryParams = `page=${page}&limit=${limit}`;
+  
+  // افزودن پارامتر جستجو اگر وجود داشته باشد
+  if (searchParams.search) {
+    queryParams += `&search=${encodeURIComponent(searchParams.search)}`;
+  }
+  
+  // افزودن فیلترهای مختلف
+  if (searchParams.genres) {
+    queryParams += `&genres=${encodeURIComponent(searchParams.genres)}`;
+  }
+  
+  if (searchParams.release_year) {
+    queryParams += `&release_year=${encodeURIComponent(searchParams.release_year)}`;
+  }
+  
+  if (searchParams.rating) {
+    queryParams += `&rating=${encodeURIComponent(searchParams.rating)}`;
+  }
+
+  const url = `/movies?${queryParams}`;
+  console.log('API Request URL:', url); // برای دیباگ کردن
+  
+  const response = await api.get(url);
+  return response.data;
+};
+
+
+
+
 export const getMovies = async (page = 1, limit = 12) => {
   const response = await api.get(`/movies?page=${page}&limit=${limit}`);
   return response.data;

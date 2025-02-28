@@ -3,14 +3,15 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import '../pages/styles/navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ onSearchUpdate }) => {
   const { user, logoutUser } = useAuth();
   const [showDropdown, setShowDropdown] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [showFilters, setShowFilters] = useState(false);
+
   const [filters, setFilters] = useState({
-    genre: '',
-    year: '',
+    genres: '',
+    release_year: '',
     rating: ''
   });
 
@@ -21,10 +22,11 @@ const Navbar = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // Implement search functionality
-    console.log('Searching for:', searchQuery, 'with filters:', filters);
     
-    // Here you would typically call a search API or filter your existing data
+    // Pass the search query and filters up to the parent component
+    onSearchUpdate(searchQuery, filters);
+    setShowFilters(false);
+
   };
 
   const toggleDropdown = () => {
@@ -63,23 +65,23 @@ const Navbar = () => {
                 <label htmlFor="genre">Genre:</label>
                 <select 
                   id="genre" 
-                  value={filters.genre}
-                  onChange={(e) => setFilters({...filters, genre: e.target.value})}
+                  value={filters.genres}
+                  onChange={(e) => setFilters({...filters, genres: e.target.value ? [e.target.value] : []})}
                 >
                   <option value="">All Genres</option>
-                  <option value="ction">Action</option>
-                  <option value="comedy">Comedy</option>
-                  <option value="drama">Drama</option>
-                  <option value="horror">Horror</option>
-                  <option value="scifi">Sci-Fi</option>
+                  <option value="Action">Action</option>
+                  <option value="Comedy">Comedy</option>
+                  <option value="Drama">Drama</option>
+                  <option value="Horror">Horror</option>
+                  <option value="Sci-Fi">Sci-Fi</option>
                 </select>
               </div>
               <div className="filter-group">
                 <label htmlFor="year">Year:</label>
                 <select 
                   id="year" 
-                  value={filters.year}
-                  onChange={(e) => setFilters({...filters, year: e.target.value})}
+                  value={filters.release_year}
+                  onChange={(e) => setFilters({...filters, release_year: e.target.value})}
                 >
                   <option value="">All Years</option>
                   <option value="2023">2023</option>
@@ -89,7 +91,7 @@ const Navbar = () => {
                   <option value="2010s">2010-2019</option>
                   <option value="2000s">2000-2009</option>
                   <option value="1990s">1990-1999</option>
-                  <option value="1980">1980-1989</option>
+                  <option value="1980s">1980-1989</option>
                 </select>
               </div>
               <div className="filter-group">
@@ -107,6 +109,12 @@ const Navbar = () => {
                   <option value="5">5+</option>
                 </select>
               </div>
+              <button 
+                className="apply-filters-btn" 
+                onClick={handleSearch}
+              >
+                Apply Filters
+              </button>
             </div>
           )}
         </div>

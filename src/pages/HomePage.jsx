@@ -6,19 +6,15 @@ import './styles/home.css';
 const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilters, setActiveFilters] = useState({
-    genre: '',
-    year: '',
+    genres: '',
+    release_year: '',
     rating: ''
   });
-  const [filteredMovies, setFilteredMovies] = useState(null);
-
-  // This function would be passed to the Navbar component to handle search updates
+  const [isSearchActive, setIsSearchActive] = useState(false);
   const handleSearchUpdate = (query, filters) => {
     setSearchQuery(query);
     setActiveFilters(filters);
-    
-    // In a real application, you would call your API with these search parameters
-    // For now, we'll just log them
+    setIsSearchActive(query !== '' || filters.genre !== '' || filters.year !== '' || filters.rating !== '');
     console.log('Search updated:', query, filters);
   };
 
@@ -27,44 +23,62 @@ const HomePage = () => {
       <Navbar onSearchUpdate={handleSearchUpdate} />
       <div className="homepage-inner">
         <h1 className="homepage-title">
-          {searchQuery ? `Search Results for "${searchQuery}"` : "Popular Movies & Series"}
+          {isSearchActive ? `Search Results for "${searchQuery}"` : "Popular Movies & Series"}
         </h1>
-        
+
         {/* Display active filters if any */}
-        {(activeFilters.genre || activeFilters.year || activeFilters.rating) && (
+        {(activeFilters.genres || activeFilters.release_year || activeFilters.rating) && (
           <div className="active-filters">
             <span>Filters: </span>
-            {activeFilters.genre && (
+            {activeFilters.genres && (
               <span className="filter-tag">
-                Genre: {activeFilters.genre}
-                <button onClick={() => setActiveFilters({...activeFilters, genre: ''})}>×</button>
+                Genre: {activeFilters.genres}
+                <button onClick={() => {
+                  const newFilters = { ...activeFilters, genres: '' };
+                  setActiveFilters({ newFilters });
+                  handleSearchUpdate(searchQuery, newFilters);
+                }}>×</button>
               </span>
             )}
-            {activeFilters.year && (
+            {activeFilters.release_year && (
               <span className="filter-tag">
-                Year: {activeFilters.year}
-                <button onClick={() => setActiveFilters({...activeFilters, year: ''})}>×</button>
+                Year: {activeFilters.release_year}
+                <button onClick={() => {
+                  const newFilters = { ...activeFilters, release_year: '' };
+                  setActiveFilters(newFilters);
+                  handleSearchUpdate(searchQuery, newFilters);
+
+                }}>×</button>
               </span>
             )}
             {activeFilters.rating && (
               <span className="filter-tag">
                 Rating: {activeFilters.rating}+
-                <button onClick={() => setActiveFilters({...activeFilters, rating: ''})}>×</button>
+                <button onClick={() => {
+                  const newFilters = { ...activeFilters, rating: '' };
+                  setActiveFilters(newFilters);
+                  handleSearchUpdate(searchQuery, newFilters);
+
+                }}>×</button>
               </span>
             )}
-            <button 
-              className="clear-filters" 
-              onClick={() => setActiveFilters({genre: '', year: '', rating: ''})}
+            <button
+              className="clear-filters"
+              onClick={() => {
+                const emptyFilters = { genres: '', release_year: '', rating: '' };
+                setActiveFilters(emptyFilters);
+                handleSearchUpdate(searchQuery, emptyFilters);
+              }}
             >
               Clear All
             </button>
           </div>
         )}
-        
+
         {/* Pass search parameters to MovieList */}
-        <MovieList 
-          searchQuery={searchQuery} 
-          filters={activeFilters} 
+        <MovieList
+          searchQuery={searchQuery}
+          filters={activeFilters}
         />
       </div>
     </div>
@@ -72,3 +86,5 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+

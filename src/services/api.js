@@ -1,17 +1,14 @@
 
-
 const API_URL = 'http://localhost:3000';
 
 const handleResponse = async (response) => {
   if (!response.ok) {
     console.error(`API Error: ${response.status} ${response.statusText}`);
     
-    // اگر پاسخ JSON وجود داشت، پیام خطا را از آن استخراج کنید
     try {
       const errorData = await response.json();
       throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
     } catch (e) {
-      // اگر پاسخ JSON نبود، خطای ساده را پرتاب کنید
       throw new Error(`HTTP error! status: ${response.status}`);
     }
   }
