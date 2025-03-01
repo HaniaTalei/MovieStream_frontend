@@ -27,7 +27,7 @@
 }
 
 .movie-card-image {
-  @apply w-full h-64 object-cover;
+  @apply w-full h-80 object-cover;
 }
 
 .movie-card-content {
@@ -42,7 +42,6 @@
   @apply text-gray-400;
 }
 
-/* استایل های اضافه شده */
 
 .active-filters {
   @apply bg-gray-800 p-4 rounded-md mb-8 flex items-center flex-wrap;

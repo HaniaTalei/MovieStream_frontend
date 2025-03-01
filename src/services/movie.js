@@ -2,15 +2,12 @@ import api from './api';
 
 
 export const getSearchedMovies = async (page = 1, limit = 12, searchParams = {}) => {
-  // ساخت پارامترهای URL براساس معیارهای جستجو و فیلتر
   let queryParams = `page=${page}&limit=${limit}`;
   
-  // افزودن پارامتر جستجو اگر وجود داشته باشد
   if (searchParams.search) {
     queryParams += `&search=${encodeURIComponent(searchParams.search)}`;
   }
   
-  // افزودن فیلترهای مختلف
   if (searchParams.genres) {
     queryParams += `&genres=${encodeURIComponent(searchParams.genres)}`;
   }
@@ -24,7 +21,7 @@ export const getSearchedMovies = async (page = 1, limit = 12, searchParams = {})
   }
 
   const url = `/movies?${queryParams}`;
-  console.log('API Request URL:', url); // برای دیباگ کردن
+  console.log('API Request URL:', url); 
   
   const response = await api.get(url);
   return response.data;

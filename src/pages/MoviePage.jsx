@@ -33,11 +33,6 @@ const MovieDetailPage = () => {
   const [hoverRating, setHoverRating] = useState(0);
   const [submittingRating, setSubmittingRating] = useState(false);
 
-
-
-  
-
-
   // Fetch movie details
   useEffect(() => {
     const loadMovie = async () => {

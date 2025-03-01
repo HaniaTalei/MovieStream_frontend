@@ -22,9 +22,7 @@ const Navbar = ({ onSearchUpdate }) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    
-    // Pass the search query and filters up to the parent component
-    onSearchUpdate(searchQuery, filters);
+        onSearchUpdate(searchQuery, filters);
     setShowFilters(false);
 
   };
@@ -74,6 +72,7 @@ const Navbar = ({ onSearchUpdate }) => {
                   <option value="Drama">Drama</option>
                   <option value="Horror">Horror</option>
                   <option value="Sci-Fi">Sci-Fi</option>
+                  <option value="Crime">Crime</option>
                 </select>
               </div>
               <div className="filter-group">

@@ -3,50 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* ProfilePage Styles
-.profile-container {
-  @apply min-h-screen bg-gray-900 text-white p-6;
-}
 
-.profile-content {
-  @apply max-w-4xl mx-auto;
-}
-
-.profile-title {
-  @apply text-3xl font-bold mb-4 text-center text-red-600;
-}
-
-.profile-info-container {
-  @apply bg-gray-800 p-6 rounded-lg shadow-lg mb-6;
-}
-
-.profile-info-text {
-  @apply text-lg mb-2;
-}
-
-.watchlist-title {
-  @apply text-2xl font-semibold mb-4 text-center text-blue-400;
-}
-
-.watchlist-empty {
-  @apply text-center text-gray-400;
-}
-
-.watchlist-items {
-  @apply space-y-2;
-}
-
-.watchlist-item {
-  @apply bg-gray-800 p-4 rounded-md shadow-md hover:bg-gray-700;
-}
-
-.watchlist-item-title {
-  @apply text-white;
-}
-
-.error-message {
-  @apply text-center text-red-500 mt-4;
-} */
 .profile-page {
   @apply min-h-screen bg-[#0a1929] text-white;
 }
